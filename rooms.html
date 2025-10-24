@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rooms | PARK HOTEL</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { font-family: 'Poppins', sans-serif; }
+
+    html { scroll-behavior: smooth; }
+    body { padding-top: 90px; background-color: #f8f9fa; }
+
+    .double-underline {
+      text-decoration-line: underline;
+      text-decoration-style: double;
+    }
+
+    .text-danger { color: #dc3545 !important; }
+
+    /* Navbar */
+    .navbar-nav .nav-link.active {
+      color: #dc3545 !important;
+      font-weight: 600;
+    }
+
+    /* Sidebar Filters */
+    .filter-card {
+      background-color: #f8f9fa;
+      border-radius: 12px;
+    }
+
+    .facility-box, .guest-box, .price-box {
+      background-color: #fff;
+      border-radius: 10px;
+      border: 1px solid #e5e5e5;
+      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .form-check-label {
+      font-size: 0.95rem;
+      color: #333;
+    }
+
+    .form-check-input {
+      border: 1px solid #bbb;
+      width: 18px;
+      height: 18px;
+      margin-right: 8px;
+    }
+
+    .form-check-input:checked {
+      background-color: #dc3545;
+      border-color: #dc3545;
+    }
+
+    .form-select {
+      border-radius: 8px;
+      border: 1px solid #bbb;
+      font-size: 0.95rem;
+      color: #333;
+      transition: 0.3s;
+    }
+
+    .form-select:focus {
+      border-color: #dc3545;
+      box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+    }
+
+    .form-range::-webkit-slider-thumb { background: #dc3545; }
+    .form-range::-moz-range-thumb { background: #dc3545; }
+
+    /* Room Cards */
+    .room-card {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      margin-bottom: 25px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .room-card:hover {
+      transform: translateY(-5px);
+      border: 1px solid #dc3545;
+    }
+    .room-img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      border-radius: 10px 0 0 10px;
+    }
+
+    .price {
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #000;
+    }
+
+    .btn-custom {
+      background-color: #0dcaf0;
+      color: white;
+      border: none;
+      transition: 0.3s;
+    }
+    .btn-custom:hover {
+      background-color: #0bb4d4;
+      transform: scale(1.05);
+    }
+
+    /* Social Section */
+    .social-section {
+      background-color: #fff;
+      padding: 40px 0;
+      text-align: center;
+      border-top: 1px solid #e5e5e5;
+    }
+
+    .social-section h5 {
+      font-weight: 600;
+      color: #000;
+      margin-bottom: 20px;
+    }
+
+    .social-icons a {
+      display: inline-block;
+      color: #dc3545;
+      font-size: 24px;
+      margin: 0 10px;
+      transition: 0.3s;
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.2);
+      color: #0dcaf0;
+    }
+     /* Social Icons Hover Effect */
+    a.text-dark {
+      display: inline-block;
+      transition: all 0.3s ease;
+    }
+
+    a.text-dark:hover {
+      color: #fff !important;
+      background-color: #dc3545;
+      border-radius: 50%;
+      padding: 10px;
+      transform: scale(1.2);
+    }
+
+    /* Footer */
+    footer {
+      background-color: #dc3545;
+      color: white;
+      padding: 15px 0;
+    }
+
+    /* ✅ Responsive layout for tablet/mobile */
+    @media (max-width: 991px) {
+      .filter-card {
+        margin-bottom: 20px;
+      }
+      .room-card {
+        flex-direction: column !important;
+      }
+      .room-img {
+        border-radius: 10px 10px 0 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-white px-lg-1 py-3 shadow-sm fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand me-5 fw-bold fs-3" href="index.html">
+        <p class="double-underline mb-0">
+          <span class="text-danger">HOTEL</span> PARK
+        </p>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link fs-5" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link fs-5 active" href="#">Rooms</a></li>
+          <li class="nav-item"><a class="nav-link fs-5" href="facilities.html">Facilities</a></li>
+          <li class="nav-item"><a class="nav-link fs-5" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link fs-5" href="about.html">About us</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container mt-5">
+    <div class="row">
+      
+      <!-- Sidebar Filters -->
+      <div class="col-lg-3 col-md-4 mb-4">
+        <div class="filter-card p-3 rounded shadow-sm bg-light">
+          <h5 class="mb-3 text-danger">FILTERS</h5>
+
+          <!-- Check Availability -->
+          <h6 class="mt-2">CHECK AVAILABILITY</h6>
+          <div class="p-3 mt-2 border rounded bg-white shadow-sm">
+            <label class="form-label mb-1">Check-in</label>
+            <input type="date" class="form-control mb-2">
+            <label class="form-label mb-1">Check-out</label>
+            <input type="date" class="form-control">
+          </div>
+
+          <!-- Facilities -->
+          <h6 class="mt-4">FACILITIES</h6>
+          <div class="facility-box p-3 mt-2 border rounded bg-white shadow-sm">
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" id="facility1">
+              <label class="form-check-label" for="facility1">Facility one</label>
+            </div>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" id="facility2">
+              <label class="form-check-label" for="facility2">Facility two</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="facility3">
+              <label class="form-check-label" for="facility3">Facility three</label>
+            </div>
+          </div>
+
+          <!-- Guests -->
+          <h6 class="mt-4">GUESTS</h6>
+          <div class="guest-box p-3 mt-2 border rounded bg-white shadow-sm">
+            <div class="mb-3">
+              <label for="adults" class="form-label mb-1">Adults</label>
+              <select id="adults" class="form-select">
+                <option selected>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4+</option>
+              </select>
+            </div>
+            <div>
+              <label for="children" class="form-label mb-1">Children</label>
+              <select id="children" class="form-select">
+                <option selected>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3+</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Price Range -->
+          <h6 class="mt-4">PRICE RANGE</h6>
+          <div class="price-box p-3 mt-2 border rounded bg-white shadow-sm">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <span>₹<span id="minPriceValue">100</span></span>
+              <span>₹<span id="maxPriceValue">1000</span></span>
+            </div>
+            <input type="range" class="form-range" min="100" max="1000" value="500" id="priceRange">
+          </div>
+        </div>
+      </div>
+
+      <!-- Room Cards -->
+      <div class="col-lg-9 col-md-8">
+
+        <!-- Room 1 -->
+        <div class="room-card d-flex flex-column flex-md-row">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c" class="room-img" alt="Room 1">
+          <div class="p-3 flex-grow-1 d-flex flex-column justify-content-between">
+            <div>
+              <h4 class="fw-bold">Simple Room Name</h4>
+              <p class="mb-1"><strong>Features:</strong> 2 Rooms • 1 Bathroom • 1 Balcony • 3 Sofa</p>
+              <p class="mb-1"><strong>Facilities:</strong> Wifi, Television, AC, Room Heater</p>
+              <p><strong>Guests:</strong> 5 Adults, 4 Children</p>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="price">₹200 per night</span>
+              <div>
+                <button class="btn btn-custom btn-sm me-2">Book Now</button>
+                <button class="btn btn-outline-dark btn-sm">More details</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Room 2 -->
+        <div class="room-card d-flex flex-column flex-md-row">
+          <img src="https://images.unsplash.com/photo-1600607687486-6cced9b7b6c7" class="room-img" alt="Room 2">
+          <div class="p-3 flex-grow-1 d-flex flex-column justify-content-between">
+            <div>
+              <h4 class="fw-bold">Luxury Room Name</h4>
+              <p class="mb-1"><strong>Features:</strong> 3 Rooms • 2 Bathroom • 1 Balcony • 2 Sofa</p>
+              <p class="mb-1"><strong>Facilities:</strong> Wifi, Television, AC, Room Heater</p>
+              <p><strong>Guests:</strong> 6 Adults, 3 Children</p>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="price">₹500 per night</span>
+              <div>
+                <button class="btn btn-custom btn-sm me-2">Book Now</button>
+                <button class="btn btn-outline-dark btn-sm">More details</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Room 3 -->
+        <div class="room-card d-flex flex-column flex-md-row">
+          <img src="https://images.unsplash.com/photo-1600585154205-34e2d37a3a2b" class="room-img" alt="Room 3">
+          <div class="p-3 flex-grow-1 d-flex flex-column justify-content-between">
+            <div>
+              <h4 class="fw-bold">Deluxe Suite</h4>
+              <p class="mb-1"><strong>Features:</strong> 4 Rooms • 3 Bathroom • 2 Balcony • 2 Sofa</p>
+              <p class="mb-1"><strong>Facilities:</strong> Wifi, Television, AC, Room Heater</p>
+              <p><strong>Guests:</strong> 8 Adults, 6 Children</p>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="price">₹1000 per night</span>
+              <div>
+                <button class="btn btn-custom btn-sm me-2">Book Now</button>
+                <button class="btn btn-outline-dark btn-sm">More details</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+ <!--social links-->
+  <div class="container mb-4">
+    <div class="row">
+      <div class="col-lg-12 text-center mb-3">
+        <h2 class="fw-bold h-font">FOLLOW US</h2>
+      </div>
+      <div class="col-lg-12 text-center">
+        <a href="#" class="text-dark fs-4 mx-2"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="text-dark fs-4 mx-2"><i class="bi bi-twitter"></i></a>
+        <a href="#" class="text-dark fs-4 mx-2"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="text-dark fs-4 mx-2"><i class="bi bi-linkedin"></i></a>
+        <a href="#" class="text-dark fs-4 mx-2"><i class="bi bi-youtube"></i></a>
+      </div>
+    </div>
+  </div>
+  <!-- Footer -->
+  <footer class="text-center mt-4">
+    <p class="mb-0">&copy; 2024 HOTEL PARK. All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const priceRange = document.getElementById("priceRange");
+    const minPrice = document.getElementById("minPriceValue");
+    const maxPrice = document.getElementById("maxPriceValue");
+
+    priceRange.addEventListener("input", () => {
+      minPrice.textContent = 100;
+      maxPrice.textContent = priceRange.value;
+    });
+  </script>
+</body>
+</html>

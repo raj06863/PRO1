@@ -1,0 +1,31 @@
+ * {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      padding-top: 90px; /* Prevent content from hiding behind fixed navbar */
+    }
+
+    .double-underline {
+      text-decoration-line: underline;
+      text-decoration-style: double;
+    }
+
+    .availability-form {
+      margin-top: -50px;
+      z-index: 2;
+      position: relative;
+    }
+
+    /* Custom golden gradient button */
+    .custom-bg {
+      background: linear-gradient(90deg, #d4af37, #c79c1d);
+      border: none;
+      color: white;
+      transition: all 0.3s ease;
+    }
+
+    .custom-bg:hover {
+      background: linear-gradient(90deg, #c79c1d, #a77b0e);
+      transform: scale(1.05);
+    }

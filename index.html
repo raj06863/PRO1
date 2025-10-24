@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PARK HOTEL</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
+
+  <style>
+    * { font-family: 'Poppins', sans-serif; }
+
+    html { scroll-behavior: smooth; }
+
+    body { padding-top: 90px; }
+
+    .double-underline { text-decoration-line: underline; text-decoration-style: double; }
+
+    .availability-form {
+      margin-top: -50px;
+      z-index: 2;
+      position: relative;
+    }
+
+    .custom-bg {
+      background: linear-gradient(90deg, #d4af37, #c79c1d);
+      border: none;
+      color: white;
+      transition: all 0.3s ease;
+    }
+
+    .custom-bg:hover { background: linear-gradient(90deg, #c79c1d, #a77b0e); transform: scale(1.05); }
+
+    .h-font { font-family: 'Poppins', sans-serif; }
+
+    .card:hover { transform: translateY(-5px); transition: all 0.3s ease; border: 1px solid #dc3545; }
+
+    .btn-outline-dark:hover { background-color: #dc3545; color: white; border-color: #dc3545; }
+
+    .text-danger { color: #dc3545 !important; }
+
+    /* Social Icons Hover Effect */
+    a.text-dark {
+      display: inline-block;
+      transition: all 0.3s ease;
+    }
+
+    a.text-dark:hover {
+      color: #fff !important;
+      background-color: #dc3545;
+      border-radius: 50%;
+      padding: 10px;
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body>
+  
+<!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-white px-lg-1 py-3 shadow-sm fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand me-5 fw-bold fs-3" href="#home">
+        <p class="double-underline mb-0">
+          <span class="text-danger">HOTEL</span> PARK
+        </p>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link fs-5" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link fs-5" href="#rooms">Rooms</a></li>
+          <li class="nav-item"><a class="nav-link fs-5" href="#facilities">Facilities</a></li>
+          <li class="nav-item"><a class="nav-link fs-5" href="#contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link fs-5" href="#about">About us</a></li>
+        </ul>
+        <div class="d-flex">
+          <button type="button" class="btn btn-outline-dark me-2" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+          <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#registerModal">Register</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Home / Slider Section -->
+  <div id="home" class="container-fluid px-lg-4 mt-4">
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="https://dq5r178u4t83b.cloudfront.net/wp-content/uploads/sites/125/2020/06/15172650/SOF1F91.jpg" class="w-100 d-block" style="height: 550px; object-fit: cover;">
+        </div>
+        <div class="swiper-slide">
+          <img src="https://www.dusit.com/dusitd2-fagu/wp-content/uploads/sites/75/cache/2025/03/1500x650/493646632.png" class="w-100 d-block" style="height: 550px; object-fit: cover;">
+        </div>
+        <div class="swiper-slide">
+          <img src="https://png.pngtree.com/background/20230616/original/pngtree-modern-luxury-hotel-reception-and-lounge-office-in-stunning-3d-render-picture-image_3665680.jpg" class="w-100 d-block" style="height: 550px; object-fit: cover;">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Availability Form -->
+  <div class="container availability-form">
+    <div class="row">
+      <div class="col-lg-12 bg-white shadow p-4 rounded">
+        <h5 class="mb-4">Check Booking Availability</h5>
+        <form>
+          <div class="row g-3">
+            <div class="col-md-3 mb-3">
+              <label class="form-label">Check-in</label>
+              <input type="date" class="form-control" required>
+            </div>
+            <div class="col-md-3 mb-3">
+              <label class="form-label">Check-out</label>
+              <input type="date" class="form-control" required>
+            </div>
+            <div class="col-md-3 mb-3">
+              <label class="form-label">Adult</label>
+              <select class="form-select">
+                <option selected>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+              </select> 
+            </div>
+            <div class="col-md-3 mb-3">
+              <label class="form-label">Children</label>
+              <select class="form-select">
+                <option selected>0</option><option>1</option><option>2</option><option>3</option><option>4</option>
+              </select>   
+            </div>
+            <div class="col-md-3 mb-3">
+              <label class="form-label">Rooms</label>
+              <select class="form-select">
+                <option selected>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+              </select>
+            </div>
+            <div class="col-lg-3 align-self-end mb-3">
+              <button type="submit" class="btn w-100 custom-bg">Check Availability</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rooms Section (First 3 Rooms) -->
+  <h2 id="rooms" class="text-center mt-5 mb-4 fw-bold h-font">OUR ROOMS</h2>
+  <div class="container">
+    <div class="row">
+      <!-- Room Card 1: Deluxe Room -->
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card shadow border-0">
+          <img src="https://img.easemytrip.com/EMTHotel-584596/32/rm/lg/10356746_3.jpg" class="card-img-top" alt="Deluxe Room Image" style="height: 200px; object-fit: cover;">
+          <div class="card-body">
+            <h5 class="card-title">Deluxe Room</h5>
+            <p class="card-text">A luxurious room with all modern amenities.</p>
+            <h6>Rent per night: $150</h6>
+            <div class="features mb-4">
+              <h6 class="mb-1">Features</h6>
+              <span class="badge bg-light text-dark text-wrap">2 Beds</span>
+              <span class="badge bg-light text-dark text-wrap">1 Bathroom</span>
+              <span class="badge bg-light text-dark text-wrap">1 Balcony</span>
+              <span class="badge bg-light text-dark text-wrap">2 TV</span>
+              <span class="badge bg-light text-dark text-wrap">4 Sofa</span>
+            </div>
+            <div class="facilities mb-4">
+              <h6 class="mb-1">Facilities</h6>
+              <span class="badge bg-light text-dark text-wrap">WiFi</span>
+              <span class="badge bg-light text-dark text-wrap">AC</span>
+              <span class="badge bg-light text-dark text-wrap">Room Heater</span>
+              <span class="badge bg-light text-dark text-wrap">Room Service</span>
+              <h6 class="mb-1 mt-3">Ratings</h6>
+              <span class="badge bg-light text-dark text-wrap">⭐⭐⭐⭐⭐</span>
+              <div class="d-flex justify-content-between mt-3">
+                <a href="#" class="btn btn-primary">Book Now</a>
+                <a href="#" class="btn btn-outline-primary mb-1">More Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Room Card 2: Superior Room -->
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card shadow border-0">
+          <img src="https://img.easemytrip.com/EMTHotel-584596/32/rm/lg/10356746_3.jpg" class="card-img-top" alt="Deluxe Room Image" style="height: 200px; object-fit: cover;">
+          <div class="card-body">
+            <h5 class="card-title">Superior Room</h5>
+            <p class="card-text">Spacious room with premium amenities and city view.</p>
+            <h6>Rent per night: $200</h6>
+            <div class="features mb-4">
+              <h6 class="mb-1">Features</h6>
+              <span class="badge bg-light text-dark text-wrap">2 Beds</span>
+              <span class="badge bg-light text-dark text-wrap">1 Bathroom</span>
+              <span class="badge bg-light text-dark text-wrap">1 Balcony</span>
+              <span class="badge bg-light text-dark text-wrap">2 TV</span>
+              <span class="badge bg-light text-dark text-wrap">4 Sofa</span>
+            </div>
+            <div class="facilities mb-4">
+              <h6 class="mb-1">Facilities</h6>
+              <span class="badge bg-light text-dark text-wrap">WiFi</span>
+              <span class="badge bg-light text-dark text-wrap">AC</span>
+              <span class="badge bg-light text-dark text-wrap">Room Heater</span>
+              <span class="badge bg-light text-dark text-wrap">Room Service</span>
+              <h6 class="mb-1 mt-3">Ratings</h6>
+              <span class="badge bg-light text-dark text-wrap">⭐⭐⭐⭐</span>
+              <div class="d-flex justify-content-between mt-3">
+                <a href="#" class="btn btn-primary">Book Now</a>
+                <a href="#" class="btn btn-outline-primary mb-1">More Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Room Card 3: Suite Room -->
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card shadow border-0">
+          <img src="https://img.easemytrip.com/EMTHotel-584596/32/rm/lg/10356746_3.jpg" class="card-img-top" alt="Deluxe Room Image" style="height: 200px; object-fit: cover;">
+          <div class="card-body">
+            <h5 class="card-title">Suite Room</h5>
+            <p class="card-text">Luxurious suite with separate living area and premium facilities.</p>
+            <h6>Rent per night: $300</h6>
+            <div class="features mb-4">
+              <h6 class="mb-1">Features</h6>
+              <span class="badge bg-light text-dark text-wrap">3 Beds</span>
+              <span class="badge bg-light text-dark text-wrap">2 Bathrooms</span>
+              <span class="badge bg-light text-dark text-wrap">2 Balconies</span>
+              <span class="badge bg-light text-dark text-wrap">3 TV</span>
+              <span class="badge bg-light text-dark text-wrap">5 Sofa</span>
+            </div>
+            <div class="facilities mb-4">
+              <h6 class="mb-1">Facilities</h6>
+              <span class="badge bg-light text-dark text-wrap">WiFi</span>
+              <span class="badge bg-light text-dark text-wrap">AC</span>
+              <span class="badge bg-light text-dark text-wrap">Room Heater</span>
+              <span class="badge bg-light text-dark text-wrap">Room Service</span>
+              <h6 class="mb-1 mt-3">Ratings</h6>
+              <span class="badge bg-light text-dark text-wrap">⭐⭐⭐⭐⭐</span>
+              <div class="d-flex justify-content-between mt-3">
+                <a href="#" class="btn btn-primary">Book Now</a>
+                <a href="#" class="btn btn-outline-primary mb-1">More Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!--more rooms buttom-->
+  <div class="text-center mb-5">
+    <a href="rooms.html" class="btn btn-outline-dark rounded-0 fw-bold">More Rooms &gt;&gt;&gt;</a>
+  </div>
+
+  <!-- Facilities Section -->
+  <div id="facilities" class="container mt-5">
+    <div class="row">
+      <div class="col-lg-12 text-center mb-4">
+        <h2 class="fw-bold h-font">OUR FACILITIES</h2>
+      </div>
+
+      <!-- WiFi -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card border-0 shadow text-center py-4">
+          <div class="card-body">
+            <i class="bi bi-wifi fs-1 mb-3 text-danger"></i>
+            <h5>WiFi</h5>
+            <p>High-speed internet access throughout the hotel.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Restaurant -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card border-0 shadow text-center py-4">
+          <div class="card-body">
+            <i class="bi bi-cup-straw fs-1 mb-3 text-danger"></i>
+            <h5>Restaurant</h5>
+            <p>Delicious meals served in our in-house restaurant.</p>
+          </div>
+        </div>  
+      </div>
+
+      <!-- Gym -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card border-0 shadow text-center py-4">
+          <div class="card-body">
+            <i class="bi bi-heart-pulse fs-1 mb-3 text-danger"></i>
+            <h5>Gym</h5>
+            <p>State-of-the-art fitness center for our guests.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Swimming Pool -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card border-0 shadow text-center py-4">
+          <div class="card-body">
+            <i class="bi bi-water fs-1 mb-3 text-danger"></i>
+            <h5>Swimming Pool</h5>
+            <p>Outdoor pool for relaxation and leisure.</p>
+          </div>
+        </div> 
+      </div>
+    </div>
+  </div>
+<!--more facilities buttom-->
+  <div class="text-center mb-5">
+    <a href="facilities.html" class="btn btn-outline-dark rounded-0 fw-bold">More Facilities &gt;&gt;&gt;</a>
+  </div>
+  <!-- Contact Section -->
+  <div id="contact" class="container mt-5 mb-4">
+    <div class="row">
+      <div class="col-lg-12 text-center mb-4">
+        <h2 class="fw-bold h-font">REACH US</h2>
+      </div>
+      <div class="col-lg-6 mb-4">
+        <iframe class="w-100 rounded" height="400px" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.9027634866653!2d90.3917183149812!3d23.750903394616736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b0b6f5f6d7%3A0x8e8e8e8e8e8e8e8e!2sDhaka%2C%20Bangladesh!5e0!3m2!1sen!2sus!4v1616161616161!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+      <div class="col-lg-6">
+        <form>
+          <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Message</label>
+            <textarea class="form-control" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+<!--hotel contact details and mail-->
+ <div class="mt-4">
+            <h5>Contact Details</h5>
+            <p><i class="bi bi-telephone-fill"></i> +1 234 567 890</p>
+            <p><i class="bi bi-envelope-fill"></i>
+            hotelpark@gmail.com</p>
+            <p><i class="bi bi-geo-alt-fill"></i> 123 Park Avenue, City, Country</p>
+          </div>
+          
+        </form>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <!-- About Us Section -->
+  <div id="about" class="container mt-5 mb-4">
+    <div class="row">
+      <div class="col-lg-12 text-center mb-4">
+        <h2 class="fw-bold h-font">ABOUT US</h2>
+      </div>
+      <div class="col-lg-6">
+        <h5 class="mb-3">Welcome to HOTEL PARK</h5>
+        <p>PARK HOTEL is a premier hospitality establishment offering luxurious accommodations and top-notch services. Our mission is to provide an unforgettable experience for our guests through exceptional service, comfortable rooms, and world-class amenities.</p>
+        <p>Whether you're here for business or leisure, PARK HOTEL is the perfect choice for your stay. We look forward to welcoming you and making your visit truly special.</p>
+      </div>
+      <div class="col-lg-6">
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" class="w-100 rounded" alt="About Us Image" style="height: 300px; object-fit: cover;">
+      </div>
+    </div>
+  </div>
+  <!--more about hotel buttom-->
+  <div class="text-center mb-5">
+    <a href="aboutus.html"= class="btn btn-outline-dark rounded-0 fw-bold">More About Us &gt;&gt;&gt;</a>
+  </div>
+
+
+  <!--social links-->
+  <div class="container mb-4">
+    <div class="row">
+      <div class="col-lg-12 text-center mb-3">
+        <h2 class="fw-bold h-font">FOLLOW US</h2>
+      </div>
+      <div class="col-lg-12 text-center">
+        <a href="#" class="text-dark fs-4 mx-2"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="text-dark fs-4 mx-2"><i class="bi bi-twitter"></i></a>
+        <a href="#" class="text-dark fs-4 mx-2"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="text-dark fs-4 mx-2"><i class="bi bi-linkedin"></i></a>
+        <a href="#" class="text-dark fs-4 mx-2"><i class="bi bi-youtube"></i></a>
+      </div>
+    </div>
+  </div>
+  
+
+  <!-- Footer -->
+  <footer class="bg-danger text-center text-white py-3 mt-4">
+    <div class="container">
+      <p class="mb-0">&copy; 2024 HOTEL PARK. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      spaceBetween: 30,
+      effect: "fade",
+      loop: true,
+      autoplay: { delay: 3000, disableOnInteraction: false },
+    });
+  </script>
+</body>
+</html>
