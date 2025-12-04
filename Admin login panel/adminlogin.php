@@ -1,3 +1,9 @@
+<?php
+  require('inc/essentials.php');
+  session_start();
+  if(isset($_SESSION['adminLogin']) && $_SESSION['adminLogin']==true){
+    redirect('admin_dashboard.php');
+  }
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,21 +51,43 @@
 
   <div class="admin-login-card">
     <h2>Admin Login</h2>
-    <form action="admin_dashboard.html" method="POST">
+    <form action="admin_dashboard.php" method="POST">
       <div class="mb-3">
         <label for="adminUsername" class="form-label">Username</label>
-        <input type="text" class="form-control" id="adminUsername" name="username" placeholder="Enter username" required>
+        <input name="Username" required type="text" class="form-control" id="adminUsername" name="username" placeholder="Enter username" required>
       </div>
       <div class="mb-3">
         <label for="adminPassword" class="form-label">Password</label>
-        <input type="password" class="form-control" id="adminPassword" name="password" placeholder="Enter password" required>
+        <input name="password" required type="password" class="form-control" id="adminPassword" name="password" placeholder="Enter password" required>
       </div>
       <button type="submit" class="btn btn-custom w-100">Login</button>
     </form>
     <p class="mt-3 text-center">
-      <a href="index.html" class="text-danger text-decoration-none">Back to Home</a>
+      <a href="index.php" class="text-danger text-decoration-none">Back to Home</a>
     </p>
   </div>
+
+  <?php
+    if(isset($_POST['login']))
+    {
+      $frm_data = filteration($_POST);
+      $_query = "SELECT * FROM `admin_cred` WHERE `username`=? AND `password`=?";
+      $values = [$frm_data['username'], $frm_data['password']];
+      $datatypes = "ss";
+      $result = select($_query, $values, $datatypes);
+      print_r($result);
+      if($result->num_rows == 1)
+      {
+        $_SESSION['adminLogin'] = true;
+        $_SESSION['adminUsername'] = $frm_data['username'];
+        redirect('admin_dashboard.php');
+        header("location: admin_dashboard.php");
+      }
+      else{
+        echo '<script>alert("Invalid Credentials")</script>';
+      }
+    }
+  ?>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>

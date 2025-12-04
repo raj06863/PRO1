@@ -180,7 +180,7 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg bg-white px-lg-1 py-3 shadow-sm fixed-top">
     <div class="container-fluid">
-      <a class="navbar-brand me-5 fw-bold fs-3" href="index.html">
+      <a class="navbar-brand me-5 fw-bold fs-3" href="index.php">
         <p class="double-underline mb-0">
           <span class="text-danger">HOTEL</span> PARK
         </p>

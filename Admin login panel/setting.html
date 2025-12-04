@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Admin Panel - Settings</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Optional icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    :root{
+      --sidebar-bg: #243033;
+      --sidebar-text: #ffffff;
+      --brand: #e63946; /* red accent for active dashboard */
+    }
+
+    body {
+      font-family: 'Montserrat', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: #f6f7f8;
+      margin: 0;
+    }
+
+    /* Sidebar */
+    .app-sidebar {
+      width: 240px;
+      background: var(--sidebar-bg);
+      min-height: 100vh;
+      color: var(--sidebar-text);
+      position: fixed;
+      top: 0;
+      left: 0;
+      padding-top: 28px;
+      box-shadow: 0 0 0 1px rgba(0,0,0,0.03);
+    }
+    .app-sidebar .brand {
+      padding: 0 20px;
+      font-weight: 700;
+      font-size: 22px;
+      letter-spacing: 1px;
+    }
+    .nav-item a {
+      color: rgba(255,255,255,0.9);
+      display: block;
+      padding: 12px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      margin: 6px 10px;
+    }
+    .nav-item a .fa {
+      width: 18px;
+    }
+    .nav-item a:hover {
+      background: rgba(255,255,255,0.05);
+      color: #fff;
+    }
+
+    /* specifically highlight Dashboard with red bg */
+    .nav-item .dashboard-link {
+      background: var(--brand);
+      color: #fff !important;
+      box-shadow: 0 2px 0 rgba(0,0,0,0.12);
+    }
+
+    /* Main content */
+    .main {
+      margin-left: 240px;
+      padding: 22px;
+      min-height: 100vh;
+    }
+
+    .topbar {
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #22292b;
+      color: #fff;
+      padding: 0 20px;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      margin-bottom: 18px;
+    }
+    .topbar .logo {
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .topbar .logout-btn {
+      background: #fff;
+      color: #222;
+      border-radius: 6px;
+      padding: 7px 12px;
+      font-weight: 600;
+    }
+
+    /* Card tweaks to match screenshot */
+    .settings-card {
+      border-radius: 6px;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.03);
+      padding: 20px;
+      background: #fff;
+      margin-bottom: 18px;
+    }
+    .settings-card h5 {
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+    .settings-card .card-controls {
+      float: right;
+    }
+    .edit-btn {
+      background: #111;
+      color: #fff;
+      border-radius: 6px;
+      padding: 6px 10px;
+      border: none;
+      font-size: 14px;
+    }
+
+    /* Toggle-like switch (large) */
+    .switch {
+      --size: 40px;
+      width: calc(var(--size) * 2.2);
+      height: var(--size);
+      background: #efefef;
+      border-radius: 999px;
+      position: relative;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .switch input { display:none; }
+    .switch .knob {
+      width: calc(var(--size) - 6px);
+      height: calc(var(--size) - 6px);
+      background: #fff;
+      border-radius: 50%;
+      position: absolute;
+      top: 3px;
+      right: 3px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+      transition: all 0.18s ease;
+    }
+    .switch input:checked + .knob {
+      right: auto;
+      left: 3px;
+    }
+    .switch input:checked ~ .switch-bg {
+      background: #e63946;
+    }
+    .switch .switch-bg {
+      position:absolute; inset:0; border-radius:999px; transition: background .18s ease;
+    }
+
+    /* small responsive behavior */
+    @media (max-width: 900px) {
+      .app-sidebar { position: relative; width:100%; min-height:auto; display:flex; gap:12px; padding:12px; }
+      .main { margin-left:0; padding: 12px; }
+      .topbar { margin-top: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="app-sidebar">
+    <div class="brand px-3 pb-3">HOTEL PARK</div>
+    <nav class="nav flex-column px-1" aria-label="sidebar">
+      <div class="nav-item">
+        <a href="#" class="dashboard-link d-flex align-items-center">
+          <i class="fa fa-tachometer-alt px-3"></i>
+          Dashboard
+        </a>
+      </div>
+      <div class="nav-item">
+        <a href="#" class="d-flex align-items-center">
+          <i class="fa fa-bed px-3"></i>
+          Rooms
+        </a>
+      </div>
+      <div class="nav-item">
+        <a href="#" class="d-flex align-items-center">
+          <i class="fa fa-users px-3"></i>
+          Users
+        </a>
+      </div>
+      <div class="nav-item">
+        <a href="#" class="d-flex align-items-center" style="opacity:0.95;">
+          <i class="fa fa-cog px-3"></i>
+          Settings
+        </a>
+      </div>
+    </nav>
+  </aside>
+
+  <!-- Main area -->
+  <main class="main">
+    <!-- Topbar -->
+    <div class="topbar mb-4">
+      <div class="d-flex align-items-center gap-3">
+        <div style="font-family: 'Montserrat'; font-weight:700; font-size:20px;" class="logo">HOTEL PARK</div>
+      </div>
+      <div class="d-flex align-items-center gap-3">
+        <button class="logout-btn">LOG OUT</button>
+      </div>
+    </div>
+
+    <!-- Page title -->
+    <div class="d-flex align-items-center justify-content-between mb-3">
+      <h2 style="font-weight:800; letter-spacing: .5px;">SETTINGS</h2>
+     
+    </div>
+
+    <!-- Settings content -->
+    <div class="container-fluid p-0">
+      <!-- General settings card -->
+      <div class="settings-card">
+        <div class="d-flex">
+          <div style="flex:1">
+            <h5>General Settings</h5>
+            <div class="text-muted small">Site Title</div>
+            <p class="mb-1" id="site_title">HB Website</p>
+            <div style="font-weight:600; margin-bottom:10px;">HOTEL PARK</div>
+
+            <div class="text-muted small">About us</div>
+            <p class="mb-1" id="site_about">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos voluptate vero sed tempore illo atque beatae asperiores, adipisci dicta quia nisi voluptates impedit perspiciatis, nobis libero culpa error officiis totam?</p>
+          </div>
+
+          <div class="card-controls ms-3">
+            <button class="edit-btn" id="editGeneral" href="edit-general.html">
+              <i class="fa fa-edit"></i> Edit
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Shutdown website card -->
+      <div class="settings-card d-flex align-items-center justify-content-between">
+        <div>
+          <h5>Shutdown Website</h5>
+          <p class="mb-0 text-muted">No customers will be allowed to book hotel room, when shutdown mode is turned on.</p>
+        </div>
+
+        <div class="d-flex align-items-center gap-3">
+          <label class="switch" title="Shutdown mode">
+            <input type="checkbox" id="shutdownToggle" onchange="(this.value)">
+            <span class="switch-bg"></span>
+            <span class="knob"></span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Extra spacing -->
+      <div style="height:200px;"></div>
+    </div>
+  </main>
+
+  <!-- Bootstrap + small JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Example: Edit button handler (opens a modal or prompt for quick demo)
+    document.getElementById('editGeneral').addEventListener('click', function(){
+      const currentTitle = 'HB Website';
+      const newTitle = prompt('Edit site title:', currentTitle);
+      if (newTitle !== null) {
+        // update DOM (simple demonstration)
+        const titleNode = document.querySelector('.settings-card h5').closest('.settings-card')
+                           .querySelector('div > div[style*="font-weight:600"]');
+        if (titleNode) titleNode.textContent = newTitle || currentTitle;
+        alert('Site title updated (demo only). In a real app, send change to server via AJAX.');
+      }
+    });
+
+    // Shutdown toggle demo
+    const toggle = document.getElementById('shutdownToggle');
+    toggle.addEventListener('change', (e) => {
+      if (e.target.checked) {
+        alert('Shutdown mode enabled (demo). Disable bookings.');
+      } else {
+        alert('Shutdown mode disabled (demo).');
+      }
+    });
+
+    // (Optional) set initial state if you'd like
+    // toggle.checked = false;
+
+    let General_data;
+    function get_general()
+    {
+        let site_title=document.getElementById('site_title');
+        let site_about=document.getElementById('site_about');
+        let site_title_inp = document.getElementById('site_title_inp');
+        let site_title_inp = document.getElementById('site_about_inp');
+        let shutdown_toggle = document.getElementById('shutdownToggle');
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST","ajax/settings_crud.php",true);
+        xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+        xhr.onload = function(){
+            general_data = JSON.parse(this.responseText);
+            site_title.innerText=general_data.site_title;
+            site_about.innerText=general_data.site_about;
+            site_about.innerText=general_data.site_title_inp;
+            site_about.innerText=general_data.site_about_inp;
+            if(general_data.shutdown_mode=='1')
+            {
+                shutdown_toggle.checked=true;
+            }
+            else
+            {
+                shutdown_toggle.checked=false;
+            }
+        }
+        
+        xhr.send('get_general');
+    }
+
+    funtion upd_general(site_title_val,site_about_val)
+    {
+       let xhr = new XMLHttpRequest();
+        xhr.open("POST","ajax/settings_crud.php",true);
+        xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+        xhr.onload = function(){
+            var myModel = document.getElementById('general-s');
+            var modal = bootstrap.Modal.getInstance(myModel);
+            modal.hide();
+            if(this.responseText==1)
+            {
+                alert('success','General settings updated!');
+                get_general();
+            }
+            else
+            {
+                alert('error','Server Down!');
+            }
+
+            console.log(this.responseText);
+           // general_data = JSON.parse(this.responseText);
+           // site_title.innerText=general_data.site_title;
+            //site_about.innerText=general_data.site_about;
+            //site_about.innerText=general_data.site_title_inp;
+            //site_about.innerText=general_data.site_about_inp;  
+    }
+    xhr.send('site_title='+site_title_val+'&site_about='+site_about_val+'&upd_general');
+    }
+
+    function upd_shutdown(val)
+    {
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST","ajax/settings_crud.php",true);
+        xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+        xhr.onload = function(){
+            if(this.responseText==1 && general_data.shutdown_model==0)
+            {
+                alert('success','Shutdown mode updated!');
+                get_general();
+            }
+            else
+            {
+                alert('error','Server Down!');
+            }
+            get_general();
+        }
+
+            xhr.send('shutdown_mode='+val+'&upd_shutdown');
+    }
+    window.onload = function(){
+        get_general();
+    }
+
+  </script>
+</body>
+</html>

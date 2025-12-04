@@ -377,7 +377,7 @@
 
 
 <div class="text-center mb-5">
-  <a href="rooms.html" class="btn btn-outline-dark rounded-0 fw-bold">More Rooms &gt;&gt;&gt;</a>
+  <a href="rooms.php" class="btn btn-outline-dark rounded-0 fw-bold">More Rooms &gt;&gt;&gt;</a>
 </div>
 
 <!-- Facilities Section -->
@@ -430,7 +430,7 @@
 </div>
 
 <div class="text-center mb-5">
-  <a href="facilities.html" class="btn btn-outline-dark rounded-0 fw-bold">More Facilities &gt;&gt;&gt;</a>
+  <a href="facilities.php" class="btn btn-outline-dark rounded-0 fw-bold">More Facilities &gt;&gt;&gt;</a>
 </div>
 
 <!-- Contact Section -->
@@ -498,7 +498,7 @@
 </div>
 
 <div class="text-center mb-5">
-  <a href="aboutus.html" class="btn btn-outline-dark rounded-0 fw-bold">More About Us &gt;&gt;&gt;</a>
+  <a href="aboutus.php" class="btn btn-outline-dark rounded-0 fw-bold">More About Us &gt;&gt;&gt;</a>
 </div>
 
 <!-- Social Links -->
